@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply font-medium box-border scroll-smooth;
+}
+
+:root {
+  --btn-color: linear-gradient(
+    to right,
+    #e61e4d 0%,
+    #e31c5f 50%,
+    #d70466 100%
+  ) !important;
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+input:not([type="checkbox"], [type="date"], [type="tel"]),
+textarea {
+  @apply w-full border mb-2 py-2 px-3 rounded-2xl;
+}
+
+textarea {
+  @apply h-28 font-normal;
+}
+
+button.primary {
+  background-color: #e31c5f;
+  background: var(--btn-color);
+  @apply bg-primary p-2 w-full text-white rounded-2xl;
+}
+
+.bg-gradient {
+  background-color: #e31c5f;
+  background: var(--btn-color);
+}
+
+.transition-move {
+  transition-property: left, opacity;
+}
+
+.h-100 {
+  height: 33rem;
+}
+
+/* ? animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.fade-in-in {
+  animation: fade-in 0.5s ease-in;
+}
+
+.fade-in-long {
+  animation: fade-in 1s ease-in;
+}
