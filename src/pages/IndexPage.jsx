@@ -11,7 +11,7 @@ export default function IndexPage() {
     });
   }, []);
   return (
-    <div className="fade-in mx-auto grid sm:grid-cols-3 lg:grid-cols-4 gap-y-6 sm:gap-x-4 lg:gap-x-6 my-6">
+    <div className="fade-in mx-auto grid px-6 sm:px-10 lg:px-20 sm:grid-cols-3 lg:grid-cols-4 gap-y-6 sm:gap-x-4 lg:gap-x-6 my-6">
       {places.length > 0 &&
         places.map((place) => (
           <Link to={`/place/${place._id}`} key={place._id} className="max-w-sm">

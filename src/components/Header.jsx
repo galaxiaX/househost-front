@@ -24,7 +24,7 @@ export default function Header() {
   }
 
   return (
-    <header className="flex justify-between pb-4 shadow sm:relative">
+    <header className="flex justify-between border-b border-gray-300 px-6 sm:px-10 lg:px-20 py-4 sm:relative">
       <Link to={"/"} className="flex items-center gap-1">
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
           <path d="M19.006 3.705a.75.75 0 00-.512-1.41L6 6.838V3a.75.75 0 00-.75-.75h-1.5A.75.75 0 003 3v4.93l-1.006.365a.75.75 0 00.512 1.41l16.5-6z" />
@@ -39,7 +39,7 @@ export default function Header() {
           HomeHost
         </span>
       </Link>
-      <div className="flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
+      <div className="flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-gray-300">
         <div>Anywhere</div>
         <div className="border border-l border-gray-300 hidden sm:inline-flex"></div>
         <div className="hidden sm:inline-flex">Any week</div>

@@ -49,7 +49,7 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="fade-in flex mt-4 grow justify-center items-center">
+    <div className="fade-in flex mt-4 grow px-6 sm:px-10 lg:px-20 justify-center items-center">
       <div className="mb-24">
         <h1 className="text-4xl text-center mb-3">Register</h1>
         <form className="max-w-md mx-auto" onSubmit={signupUser}>

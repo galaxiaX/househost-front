@@ -41,7 +41,7 @@ export default function PlacesPage() {
   }
 
   return (
-    <div className="mb-10">
+    <div className="mb-10 px-6 sm:px-10 lg:px-20">
       <div className="text-center">
         <Link
           to={"/account/places/new"}

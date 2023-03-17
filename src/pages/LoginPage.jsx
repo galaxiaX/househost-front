@@ -31,7 +31,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="fade-in flex mt-4 grow justify-center items-center">
+    <div className="fade-in flex px-6 sm:px-10 lg:px-20 mt-4 grow justify-center items-center">
       <div className="mb-48">
         <h1 className="text-4xl text-center mb-3">Login</h1>
         <form

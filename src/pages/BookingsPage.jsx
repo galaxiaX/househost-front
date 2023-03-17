@@ -25,7 +25,7 @@ export default function BookingsPage() {
 
   return (
     <div className="fade-in">
-      <div className="mt-4 mx-auto w-full sm:w-9/12 lg:w-7/12 flex flex-col gap-8">
+      <div className="mt-4 mx-auto px-6 sm:px-10 lg:px-20 w-full sm:w-9/12 lg:w-7/12 flex flex-col gap-8">
         {bookings?.length > 0 &&
           bookings.map((booking) => (
             <div key={booking._id} className="relative">

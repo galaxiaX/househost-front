@@ -57,7 +57,7 @@ export default function PlacePage() {
   }
 
   return (
-    <div className="fade-in mt-6 lg:px-28 max-w-screen-xl mx-auto">
+    <div className="fade-in mt-6 max-w-screen-xl  px-6 sm:px-10 lg:px-48 mx-auto">
       <div>
         <h1 className="text-2xl mb-1 flex-wrap">{place.title}</h1>
         <a

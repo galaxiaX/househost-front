@@ -96,7 +96,7 @@ export default function PlacesFormPage() {
   }
 
   return (
-    <div className="mx-auto sm:w-11/12 lg:w-10/12">
+    <div className="mx-auto px-6 sm:px-10 lg:px-20 sm:w-11/12 lg:w-10/12">
       <AccountNav />
       <form onSubmit={savePlace} className="fade-in">
         {preInput(placeInfo.title[0], placeInfo.title[1])}
