@@ -9,9 +9,7 @@ export default function PlaceImg({
 
   return (
     <img
-      src={`${import.meta.env.VITE_SERVER_URL || "http://localhost:3000"}/${
-        place.photos[index]
-      }`}
+      src={`${import.meta.env.VITE_IMG_URL}/${place.photos[index]}`}
       className={className}
     />
   );

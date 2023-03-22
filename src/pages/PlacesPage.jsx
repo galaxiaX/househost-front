@@ -68,7 +68,7 @@ export default function PlacesPage() {
       <div className="mt-4 mx-auto w-full sm:w-9/12 lg:w-7/12 flex flex-col">
         {places.length > 0 &&
           places.map((place) => (
-            <div className="relative" key={place.title}>
+            <div className="relative mb-3" key={place.title}>
               <Link
                 to={`/account/places/${place._id}`}
                 className="relative flex gap-4 bg-gray-200 shadow cursor-pointer overflow-hidden rounded-2xl"
@@ -130,7 +130,11 @@ export default function PlacesPage() {
                 </svg>
               </button>
               <div className={`${!toggleBookings && "hidden"}`}>
-                <BookingsOrder bookings={bookings} setBookings={setBookings} />
+                <BookingsOrder
+                  bookings={bookings}
+                  setBookings={setBookings}
+                  placeId={place._id}
+                />
               </div>
             </div>
           ))}

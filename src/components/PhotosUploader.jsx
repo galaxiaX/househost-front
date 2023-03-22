@@ -148,6 +148,7 @@ export default function PhotosUploader({ newPlace, setNewPlace }) {
             type="file"
             multiple
             className="hidden"
+            accept="image/*"
             onChange={uploadPhoto}
           />
           <svg

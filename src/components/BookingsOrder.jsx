@@ -1,7 +1,7 @@
 import axios from "axios";
 import { differenceInCalendarDays, format } from "date-fns";
 
-export default function BookingsOrder({ bookings, setBookings }) {
+export default function BookingsOrder({ bookings, setBookings, placeId }) {
   async function removeBooking(ev, bookingId) {
     ev.preventDefault();
     try {
@@ -14,10 +14,13 @@ export default function BookingsOrder({ bookings, setBookings }) {
 
   return (
     <>
-      <div className="mt-2 w-full sm:w-1/2 lg:w-2/3 flex flex-col gap-2 float-right">
-        {bookings?.length > 0 &&
-          bookings.map((booking) => (
-            <div key={booking._id} className="relative">
+      {bookings?.length > 0 &&
+        bookings.map((booking) => (
+          <div
+            key={booking._id}
+            className={`${placeId === booking.place ? "" : "hidden"}`}
+          >
+            <div className="mt-2 w-full sm:w-1/2 lg:w-2/3 flex flex-col gap-2 float-right relative">
               <div className="flex gap-2 bg-gray-200 shadow-lg rounded-2xl overflow-hidden">
                 <div className="flex aspect-square sm:aspect-auto shrink-0"></div>
                 <div className="overflow-hidden p-2 flex flex-col gap-1">
@@ -161,8 +164,8 @@ export default function BookingsOrder({ bookings, setBookings }) {
                 <h3>cancel</h3>
               </button>
             </div>
-          ))}
-      </div>
+          </div>
+        ))}
     </>
   );
 }
