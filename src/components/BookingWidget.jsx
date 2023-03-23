@@ -75,7 +75,7 @@ export default function BookingWidget({ place }) {
   return (
     <>
       {isReservePage ? null : (
-        <div className="fade-in-in fixed z-10 sm:hidden bottom-0 left-0 w-full border-t-2 bg-white">
+        <div className="fade-in-in fixed z-10 shadow sm:hidden bottom-0 left-0 w-full border-t bg-white">
           <div className="flex justify-between items-center px-6 h-16">
             <div>
               <h2 className="text-xl sm:text-2xl font-normal">
@@ -95,7 +95,7 @@ export default function BookingWidget({ place }) {
         </div>
       )}
       <aside
-        className="sm:sticky z-20 flex sm:top-32 sm:right-0 h-100 my-8 sm:w-1/3 border-2 rounded-lg shadow-xl bg-white"
+        className="sm:sticky z-20 flex sm:top-32 sm:right-0 h-100 my-8 sm:w-1/3 border rounded-lg shadow-xl bg-white"
         id="reserve"
       >
         <div className="flex flex-col w-full p-7 h-100 items-center">

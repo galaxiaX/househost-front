@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
 import NavMenu from "./NavMenu";
 
 export default function Header() {
@@ -23,7 +22,7 @@ export default function Header() {
         </svg>
 
         <span className="hidden sm:inline-flex font-bold text-xl">
-          HomeHost
+          HouseHost
         </span>
       </Link>
       <div className="flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-gray-300">
@@ -81,7 +80,7 @@ export default function Header() {
       </button>
       <button
         type="button"
-        className="sm:hidden flex items-center gap-2 shadow-lg border border-gray-300 rounded-full py-2 px-3 sm:px-2"
+        className="sm:hidden flex items-center gap-2 shadow border border-gray-300 rounded-full py-2 px-3 sm:px-2"
         onClick={handleToggle}
       >
         <svg
