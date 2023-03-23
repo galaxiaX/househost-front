@@ -25,6 +25,7 @@ export default function IndexPage() {
               <h3 className="text-sm text-gray-700 truncate">
                 {place.address || "City, Country"}
               </h3>
+
               <h2 className="text-sm font-normal">
                 <span className="text-lg">${place.price || "???"} </span>
                 /night

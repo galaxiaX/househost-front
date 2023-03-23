@@ -3,6 +3,7 @@ import { differenceInCalendarDays } from "date-fns";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
+import { IconCalendar, IconPhone, IconStar, IconUserLine } from "./SvgIcon";
 
 export default function BookingWidget({ place }) {
   const [reserve, setReserve] = useState({
@@ -109,23 +110,11 @@ export default function BookingWidget({ place }) {
               <label className="p-1 font-normal">
                 <h3 className="px-1">Check-in:</h3>
                 <div className="flex font-normal px-1 mb-1">
-                  <svg
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    className="w-7 border border-r-0 border-gray-300 rounded-l-full px-1"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M6 3.5a.5.5 0 01.5-.5h8a.5.5 0 01.5.5v9a.5.5 0 01-.5.5h-8a.5.5 0 01-.5-.5v-2a.5.5 0 00-1 0v2A1.5 1.5 0 006.5 14h8a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0014.5 2h-8A1.5 1.5 0 005 3.5v2a.5.5 0 001 0v-2z"
-                    />
-                    <path
-                      fillRule="evenodd"
-                      d="M11.854 8.354a.5.5 0 000-.708l-3-3a.5.5 0 10-.708.708L10.293 7.5H1.5a.5.5 0 000 1h8.793l-2.147 2.146a.5.5 0 00.708.708l3-3z"
-                    />
-                  </svg>
+                  <IconCalendar className="w-7 border border-r-0 border-gray-300 rounded-l-full px-1" />
                   <input
                     type="date"
                     name="checkin"
+                    placeholder="Check-in date"
                     value={reserve.checkin}
                     onChange={handleChange}
                     className="w-full px-2 border border-gray-300 rounded-r-full"
@@ -136,23 +125,11 @@ export default function BookingWidget({ place }) {
               <label className="p-1 border-t border-gray-400 font-normal">
                 <h3 className="block px-1">Checkout:</h3>
                 <div className="flex font-normal px-1 mb-1">
-                  <svg
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    className="w-7 border border-r-0 border-gray-300 rounded-l-full px-1"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M6 12.5a.5.5 0 00.5.5h8a.5.5 0 00.5-.5v-9a.5.5 0 00-.5-.5h-8a.5.5 0 00-.5.5v2a.5.5 0 01-1 0v-2A1.5 1.5 0 016.5 2h8A1.5 1.5 0 0116 3.5v9a1.5 1.5 0 01-1.5 1.5h-8A1.5 1.5 0 015 12.5v-2a.5.5 0 011 0v2z"
-                    />
-                    <path
-                      fillRule="evenodd"
-                      d="M.146 8.354a.5.5 0 010-.708l3-3a.5.5 0 11.708.708L1.707 7.5H10.5a.5.5 0 010 1H1.707l2.147 2.146a.5.5 0 01-.708.708l-3-3z"
-                    />
-                  </svg>
+                  <IconCalendar className="w-7 border border-r-0 border-gray-300 rounded-l-full px-1" />
                   <input
                     type="date"
                     name="checkout"
+                    placeholder="Checkout date"
                     value={reserve.checkout}
                     onChange={handleChange}
                     className="w-full px-2 border border-gray-300 rounded-r-full"
@@ -163,13 +140,7 @@ export default function BookingWidget({ place }) {
               <label className="border-t border-gray-400 px-1 font-normal">
                 <h3 className="px-1">Guests:</h3>
                 <div className="flex font-normal px-1">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-7 h-6 border border-r-0 border-gray-300 rounded-l-full px-1"
-                  >
-                    <path d="M12 2a5 5 0 105 5 5 5 0 00-5-5zm0 8a3 3 0 113-3 3 3 0 01-3 3zm9 11v-1a7 7 0 00-7-7h-4a7 7 0 00-7 7v1h2v-1a5 5 0 015-5h4a5 5 0 015 5v1z" />
-                  </svg>
+                  <IconUserLine className="w-7 h-6 border border-r-0 border-gray-300 rounded-l-full px-1" />
                   <input
                     type="number"
                     name="guests"
@@ -192,19 +163,7 @@ export default function BookingWidget({ place }) {
               <label className="p-1 border-t border-gray-400 font-normal">
                 <h3 className="px-1">Phone number:</h3>
                 <div className="flex font-normal px-1 mb-1">
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-7 border border-r-0 border-gray-300 rounded-l-full px-1"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                    />
-                  </svg>
+                  <IconPhone className="w-7 border border-r-0 border-gray-300 rounded-l-full px-1" />
                   <input
                     type="tel"
                     name="phone"
@@ -219,21 +178,7 @@ export default function BookingWidget({ place }) {
               <label className="p-1 border-t border-gray-400 font-normal">
                 <h3 className="px-1">Your name:</h3>
                 <div className="flex font-normal px-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-7 h-6 border border-r-0 border-gray-300 rounded-l-full px-1"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
-                    />
-                  </svg>
-
+                  <IconStar className="w-7 h-6 border border-r-0 border-gray-300 rounded-l-full px-1" />
                   <input
                     type="text"
                     name="name"
