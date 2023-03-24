@@ -11,9 +11,16 @@ export default function IndexPage() {
   const { ready } = useContext(UserContext);
 
   useEffect(() => {
-    axios.get("/places").then((response) => {
-      setPlaces(response.data);
-    });
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/places");
+        setPlaces(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   if (!ready) {
@@ -65,13 +72,15 @@ export default function IndexPage() {
           </button>
         </div>
       )}
-      <a
-        href="#toppage"
-        className="p-2 flex text-xl gap-2 my-10 justify-end sm:justify-center"
-      >
-        <h3>Back to top</h3>
-        <IconSlideUp className="w-6 h-6 mt-1" />
-      </a>
+      {places && (
+        <a
+          href="#toppage"
+          className="p-2 flex text-xl gap-2 my-10 justify-end sm:justify-center"
+        >
+          <h3>Back to top</h3>
+          <IconSlideUp className="w-6 h-6 mt-1" />
+        </a>
+      )}
     </>
   );
 }

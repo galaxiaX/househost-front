@@ -23,7 +23,8 @@ export default function PlacePage() {
 
   if (showAllPhotos) {
     return (
-      <button
+      <a
+        href="#toppage"
         onClick={() => setShowAllPhotos(false)}
         className="fade-in absolute inset-0 bg-white h-full w-full"
       >
@@ -42,7 +43,7 @@ export default function PlacePage() {
         <div className="sticky top-0 h-screen bg-black bg-opacity-80 flex justify-center items-center text-white text-2xl">
           Click anywhere to close
         </div>
-      </button>
+      </a>
     );
   }
 
