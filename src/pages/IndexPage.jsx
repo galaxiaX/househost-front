@@ -39,7 +39,7 @@ export default function IndexPage() {
         {visiblePlaces.length > 0 &&
           visiblePlaces.map((place) => (
             <Link
-              to={`/place/${place._id}`}
+              to={`/place/${place._id}#toppage`}
               key={place._id}
               className="max-w-sm"
             >
