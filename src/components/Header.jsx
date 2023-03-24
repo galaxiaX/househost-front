@@ -15,7 +15,7 @@ export default function Header() {
       <div className="flex items-center">
         <Link to={"/"} className="flex items-center gap-1 text-primary">
           <IconHome className="w-9" />
-          <span className="font-bold text-3xl sm:text-3xl">HouseHost</span>
+          <span className="font-bold mt-1 text-3xl sm:text-3xl">HouseHost</span>
         </Link>
       </div>
       <div className="sm:flex justify-center">
