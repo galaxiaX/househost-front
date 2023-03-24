@@ -9,6 +9,7 @@ import ProfilePage from "./pages/ProfilePage";
 import PlacesFormPage from "./pages/PlacesFormPage";
 import PlacePage from "./pages/PlacePage";
 import "./App.css";
+import PageNotFound from "./components/PageNotFound";
 
 axios.defaults.baseURL =
   import.meta.env.VITE_SERVER_URL || "http://localhost:3000";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/account/places/new" element={<PlacesFormPage />} />
           <Route path="/account/places/:id" element={<PlacesFormPage />} />
           <Route path="/place/:id" element={<PlacePage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </UserContextProvider>

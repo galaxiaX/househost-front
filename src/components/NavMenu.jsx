@@ -68,7 +68,7 @@ export default function NavMenu({ toggleMenu, handleToggle }) {
           className="font-normal text-xl sm:text-sm sm:w-40 py-5 sm:py-3 sm:px-4 px-6 flex hover:bg-slate-200 justify-between items-center"
         >
           <h3>My Profile</h3>
-          <IconUser className="w-6 h-6" />
+          <IconUser className="w-6 h-6 -mr-px" />
         </Link>
       </li>
       <li>
@@ -88,7 +88,7 @@ export default function NavMenu({ toggleMenu, handleToggle }) {
           className="font-normal border-b text-xl sm:text-sm sm:w-40 py-5 sm:py-3 sm:px-4 px-6 flex hover:bg-slate-200 justify-between items-center"
         >
           <h3>My Places</h3>
-          <IconHome className="w-6 h-6" />
+          <IconHome className="w-6 h-6 -mr-px" />
         </Link>
       </li>
       <li>
@@ -111,7 +111,7 @@ export default function NavMenu({ toggleMenu, handleToggle }) {
           }`}
         >
           <h3>Logout</h3>
-          <IconLogout className="w-6 h-6" />
+          <IconLogout className="w-6 h-6 -mr-px" />
         </button>
       </li>
     </ul>

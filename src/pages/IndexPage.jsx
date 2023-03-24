@@ -38,7 +38,7 @@ export default function IndexPage() {
             >
               <PlaceImg
                 place={place}
-                className="object-cover rounded-xl aspect-video sm:aspect-square"
+                className="object-cover rounded-xl aspect-square sm:aspect-square"
               />
 
               <div className="mt-3">
