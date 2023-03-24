@@ -56,7 +56,7 @@ export default function PlacesPage() {
       <div className="mt-4 mx-auto w-full sm:w-9/12 lg:w-7/12 flex flex-col">
         {places.length > 0 &&
           places.map((place) => (
-            <div className="relative mb-3" key={place.title}>
+            <div className="relative mb-4" key={place.title}>
               <Link
                 to={`/account/places/${place._id}`}
                 className="relative flex gap-4 bg-gray-200 shadow cursor-pointer overflow-hidden rounded-2xl"
@@ -84,7 +84,7 @@ export default function PlacesPage() {
               </Link>
               <button
                 onClick={(ev) => removePlace(ev, place._id)}
-                className="absolute flex overflow-hidden w-7 transition-all duration-300 hover:w-24 hover:px-2 top-2 right-2 sm:top-3 sm:right-3 items-center bg-gray-400 hover:bg-red-600 text-white rounded-full"
+                className="absolute flex overflow-hidden w-7 transition-all duration-300 hover:w-24 hover:px-2 top-2 right-2 sm:top-3 sm:right-3 items-center bg-red-600 text-white rounded-full"
               >
                 <div className="w-7 h-7 p-1">
                   <IconBin />

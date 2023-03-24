@@ -82,7 +82,7 @@ export default function BookingsOrder({ bookings, setBookings, placeId }) {
               </div>
               <button
                 onClick={(ev) => removeBooking(ev, booking._id)}
-                className="absolute flex overflow-hidden w-7 transition-all duration-300 hover:w-24 hover:px-2 top-2 right-2 sm:top-3 sm:right-3 items-center bg-gray-400 hover:bg-red-600 text-white rounded-full"
+                className="absolute flex overflow-hidden w-7 transition-all duration-300 hover:w-24 hover:px-2 top-2 right-2 sm:top-3 sm:right-3 items-center bg-red-600 text-white rounded-full"
               >
                 <div className="w-7 h-7 p-1">
                   <IconBin />

@@ -37,7 +37,7 @@ export default function ProfilePage() {
     <div>
       <AccountNav />
       {subpage === "profile" && (
-        <div className="fade-in text-center px-6 sm:px-10 lg:px-20 max-w-lg mx-auto shadow">
+        <div className="fade-in text-center px-6 sm:px-10 lg:px-20 max-w-lg mx-auto">
           Logged in as {user.firstname} {user.lastname} ({user.email})
           <button
             onClick={logout}
