@@ -37,6 +37,7 @@ export default function ProfilePage() {
   if (redirect) {
     return <Navigate to={redirect} />;
   }
+
   return (
     <div>
       <AccountNav />

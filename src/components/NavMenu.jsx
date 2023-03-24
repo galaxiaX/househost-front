@@ -1,7 +1,7 @@
 import axios from "axios";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   IconGithub,
   IconX,
@@ -15,7 +15,7 @@ import {
 export default function NavMenu({ toggleMenu, handleToggle }) {
   const [redirect, setRedirect] = useState(false);
   const { user, setUser } = useContext(UserContext);
-
+  const navigate = useNavigate();
   async function logout() {
     await axios.post("/logout");
     handleToggle();
@@ -23,10 +23,11 @@ export default function NavMenu({ toggleMenu, handleToggle }) {
     setRedirect(true);
   }
 
-  if (redirect && !user) {
-    setRedirect(false);
-    return <Navigate to={"/login"} />;
-  }
+  useEffect(() => {
+    if (redirect) {
+      navigate("/login");
+    }
+  }, [redirect, navigate]);
 
   return (
     <ul
@@ -105,6 +106,7 @@ export default function NavMenu({ toggleMenu, handleToggle }) {
       </li>
       <li>
         <button
+          // to={"/account"}
           onClick={logout}
           className={`font-normal text-xl sm:text-sm sm:w-40 py-5 sm:py-3 sm:px-4 px-6 flex hover:bg-slate-200 w-full justify-between items-center ${
             !user && "hidden"
