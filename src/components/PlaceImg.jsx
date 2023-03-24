@@ -11,6 +11,7 @@ export default function PlaceImg({
     <img
       src={`${import.meta.env.VITE_IMG_URL}/${place.photos[index]}`}
       className={className}
+      loading="lazy"
     />
   );
 }

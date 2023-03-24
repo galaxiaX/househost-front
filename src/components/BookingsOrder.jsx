@@ -27,7 +27,7 @@ export default function BookingsOrder({ bookings, setBookings, placeId }) {
         bookings.map((booking) => (
           <div
             key={booking._id}
-            className={`${placeId === booking.place ? "" : "hidden"}`}
+            className={`${placeId === booking.place ? "" : "hidden"} fade-in`}
           >
             <div className="mt-2 w-full sm:w-1/2 lg:w-2/3 flex flex-col gap-2 float-right relative">
               <div className="flex pl-2 bg-gray-200 shadow-lg rounded-2xl overflow-hidden">

@@ -93,7 +93,9 @@ export default function PlacesPage() {
               </button>
 
               <button
-                className="absolute p-1 justify-center flex top-24 sm:top-32 right-2 sm:right-3 bg-blue-500 hover:bg-blue-400 text-white rounded-full"
+                className={`absolute p-1 justify-center transition-all duration-500 flex top-24 sm:top-32 right-2 sm:right-3 bg-blue-500 hover:bg-blue-400 text-white rounded-full ${
+                  toggleBookings && "rotate-180"
+                }`}
                 onClick={() => getPlaceBookings(place._id)}
               >
                 <IconTriangle />

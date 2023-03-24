@@ -142,7 +142,7 @@ export default function PlacesFormPage() {
               type="number"
               name="bedroom"
               min="1"
-              max="100"
+              max="1000"
               step="1"
               placeholder="number of your bedroom(s)"
               value={newPlace.bedroom || ""}
@@ -156,7 +156,7 @@ export default function PlacesFormPage() {
               type="number"
               name="bed"
               min="1"
-              max="100"
+              max="1000"
               step="1"
               placeholder="number of your bed(s)"
               value={newPlace.bed || ""}
@@ -170,7 +170,7 @@ export default function PlacesFormPage() {
               type="number"
               name="bath"
               min="1"
-              max="100"
+              max="1000"
               step="1"
               placeholder="number of your bath(s)"
               value={newPlace.bath || ""}

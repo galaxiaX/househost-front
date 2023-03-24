@@ -28,7 +28,7 @@ export default function Header() {
       </div>
       <button
         type="button"
-        className="hidden sm:flex items-center gap-2 shadow-lg border border-gray-300 rounded-full py-2 px-3 sm:px-2"
+        className="hidden sm:flex items-center gap-2 shadow rounded-full py-2 px-3 sm:px-2"
         onClick={handleToggle}
       >
         <IconHamburger className="w-6 h-6" />

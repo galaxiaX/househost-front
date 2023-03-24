@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PlaceImg from "../components/PlaceImg";
 import { differenceInCalendarDays, format } from "date-fns";
 import { Link } from "react-router-dom";
+import { UserContext } from "../UserContext";
 import {
   IconArrow,
   IconBin,
@@ -13,6 +14,7 @@ import {
 
 export default function BookingsPage() {
   const [bookings, setBookings] = useState([]);
+  const { ready } = useContext(UserContext);
 
   useEffect(() => {
     axios.get("/bookings").then((response) => {
@@ -28,6 +30,14 @@ export default function BookingsPage() {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  if (!ready) {
+    return (
+      <div className="flex justify-center pt-60 h-screen w-full">
+        <h2 className="text-4xl">Loading...</h2>
+      </div>
+    );
   }
 
   return (

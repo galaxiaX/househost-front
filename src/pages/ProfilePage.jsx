@@ -23,7 +23,11 @@ export default function ProfilePage() {
   }
 
   if (!ready) {
-    return "Loading...";
+    return (
+      <div className="flex justify-center pt-60 h-screen w-full">
+        <h2 className="text-4xl">Loading...</h2>
+      </div>
+    );
   }
 
   if (ready && !user && !redirect) {
