@@ -43,10 +43,9 @@ export default function IndexPage() {
               key={place._id}
               className="max-w-sm"
             >
-              <PlaceImg
-                place={place}
-                className="object-cover rounded-xl aspect-square sm:aspect-square"
-              />
+              <div className="h-80 w-80 sm:w-52 sm:h-52 lg:h-80 lg:w-80 rounded-xl overflow-hidden flex">
+                <PlaceImg place={place} className="object-cover rounded-xl" />
+              </div>
 
               <div className="mt-3">
                 <h2 className="truncate">{place.title}</h2>
