@@ -49,7 +49,7 @@ export default function BookingsPage() {
               to={`/place/${booking.place._id}`}
               className="flex gap-2 bg-gray-200 shadow-lg rounded-2xl overflow-hidden"
             >
-              <div className="flex aspect-square sm:aspect-auto shrink-0">
+              <div className="flex h-32 w-32 sm:h-40 sm:w-64 overflow-hidden grow-0 shrink-0">
                 <PlaceImg
                   place={booking.place}
                   className={"object-cover h-32 w-32 sm:h-40 sm:w-64"}

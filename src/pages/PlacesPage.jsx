@@ -61,10 +61,10 @@ export default function PlacesPage() {
                 to={`/account/places/${place._id}`}
                 className="relative flex gap-4 bg-gray-200 shadow cursor-pointer overflow-hidden rounded-2xl"
               >
-                <div className="flex aspect-square sm:aspect-auto overflow-hidden bg-gray-300 grow-0 shrink-0">
+                <div className="flex h-32 w-32 sm:h-40 sm:w-64 overflow-hidden bg-gray-300 grow-0 shrink-0">
                   <PlaceImg
                     place={place}
-                    className={"object-cover h-32 w-32 sm:h-40 sm:w-64"}
+                    className="object-cover h-32 w-32 sm:h-40 sm:w-64"
                   />
                 </div>
                 <div className="h-32 sm:h-36 w-full flex flex-col overflow-y-auto py-2 pr-8">

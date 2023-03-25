@@ -64,31 +64,31 @@ export default function PlacePage() {
       </div>
       <div className="mx-auto">
         <div
-          className="grid grid-cols-[2fr_1fr] gap-2 mt-6 rounded-xl overflow-hidden cursor-pointer"
+          className="grid grid-cols-[2fr_1fr] gap-1 sm:gap-2 mt-6 h-40 sm:h-72 md:h-96 rounded-xl overflow-hidden cursor-pointer"
           onClick={() => setShowAllPhotos(true)}
         >
           {place.photos?.[0] && (
-            <div className="flex grow">
+            <div className="flex overflow-hidden">
               <PlaceImg place={place} index={0} />
             </div>
           )}
 
-          <div className="grid gap-2">
+          <div className="grid grid-rows-[3fr_2fr] gap-1 sm:gap-2">
             {place.photos?.[1] && (
-              <div className="aspect-square flex">
+              <div className="flex overflow-hidden">
                 <PlaceImg place={place} index={1} />
               </div>
             )}
 
-            <div className="grid grid-cols-2 gap-2 relative">
+            <div className="grid grid-cols-2 gap-1 sm:gap-2 relative">
               {place.photos?.[2] && (
-                <div className="aspect-square flex">
+                <div className="flex overflow-hidden">
                   <PlaceImg place={place} index={2} />
                 </div>
               )}
 
               {place.photos?.[3] && (
-                <div className="aspect-square">
+                <div className="flex overflow-hidden">
                   <PlaceImg place={place} index={3} />
                   <button
                     onClick={() => setShowAllPhotos(true)}

@@ -43,8 +43,11 @@ export default function IndexPage() {
               key={place._id}
               className="max-w-sm"
             >
-              <div className="h-80 w-80 sm:w-52 sm:h-52 lg:h-80 lg:w-80 rounded-xl overflow-hidden flex">
-                <PlaceImg place={place} className="object-cover rounded-xl" />
+              <div className="h-72 w-full sm:h-52 lg:h-80 rounded-xl overflow-hidden flex">
+                <PlaceImg
+                  place={place}
+                  className="object-cover h-72 w-full sm:h-52 lg:h-80"
+                />
               </div>
 
               <div className="mt-3">
