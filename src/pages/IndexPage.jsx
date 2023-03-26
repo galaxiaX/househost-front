@@ -75,7 +75,7 @@ export default function IndexPage() {
           </button>
         </div>
       )}
-      {places && (
+      {places.length && (
         <a
           href="#toppage"
           className="p-2 flex text-xl gap-2 my-10 justify-end sm:justify-center"
