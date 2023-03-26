@@ -26,7 +26,7 @@ export default function IndexPage() {
 
   if (!ready) {
     return (
-      <div className="flex justify-center pt-60 h-screen w-full">
+      <div className="flex justify-center pt-60 h-screen">
         <div className="loader"></div>
       </div>
     );
@@ -36,14 +36,10 @@ export default function IndexPage() {
 
   return (
     <>
-      {visiblePlaces?.length > 0 ? (
-        <div className="fade-in mx-auto grid px-6 sm:px-10 lg:px-20 sm:grid-cols-3 lg:grid-cols-4 gap-y-6 sm:gap-x-4 lg:gap-x-6 my-6">
-          {visiblePlaces.map((place) => (
-            <Link
-              to={`/place/${place._id}#toppage`}
-              key={place._id}
-              className="max-w-sm"
-            >
+      <div className="fade-in grid px-6 sm:px-10 lg:px-20 grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-y-6 sm:gap-x-4 lg:gap-x-6 my-6">
+        {visiblePlaces?.length > 0 &&
+          visiblePlaces.map((place) => (
+            <Link to={`/place/${place._id}#toppage`} key={place._id}>
               <div className="h-72 w-full sm:h-52 lg:h-80 rounded-xl overflow-hidden flex">
                 <PlaceImg
                   place={place}
@@ -64,12 +60,7 @@ export default function IndexPage() {
               </div>
             </Link>
           ))}
-        </div>
-      ) : (
-        <div className="flex justify-center mt-56">
-          <h3 className="text-2xl sm:text-3xl">No places to show</h3>
-        </div>
-      )}
+      </div>
 
       {places.length > limit && (
         <div className="flex justify-center w-full mt-6">
