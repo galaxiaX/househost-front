@@ -52,10 +52,9 @@ export default function PlacesPage() {
           Add new place
         </Link>
       </div>
-
-      <div className="mt-4 mx-auto w-full sm:w-9/12 lg:w-7/12 flex flex-col">
-        {places.length > 0 &&
-          places.map((place) => (
+      {places.length > 0 ? (
+        <div className="mt-4 mx-auto w-full sm:w-9/12 lg:w-7/12 flex flex-col">
+          {places.map((place) => (
             <div className="relative mb-4" key={place.title}>
               <Link
                 to={`/account/places/${place._id}`}
@@ -109,7 +108,14 @@ export default function PlacesPage() {
               </div>
             </div>
           ))}
-      </div>
+        </div>
+      ) : (
+        <div className="flex justify-center mt-24">
+          <h3 className="text-xl sm:text-2xl">
+            You don't have any places yet.
+          </h3>
+        </div>
+      )}
     </div>
   );
 }
