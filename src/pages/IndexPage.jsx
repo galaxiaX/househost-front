@@ -27,7 +27,7 @@ export default function IndexPage() {
   if (!ready) {
     return (
       <div className="flex justify-center pt-60 h-screen w-full">
-        <h2 className="text-2xl sm:text-3xl">Loading...</h2>
+        <div className="loader"></div>
       </div>
     );
   }
