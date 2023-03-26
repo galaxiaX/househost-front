@@ -67,7 +67,7 @@ export default function PlacesPage() {
                   />
                 </div>
                 <div className="h-32 sm:h-36 w-full flex flex-col overflow-y-auto py-2 pr-8">
-                  <h2 className="sm:text-xl font-bold border-b border-gray-300 mr-3">
+                  <h2 className="sm:text-xl font-bold border-b border-gray-300 mr-3 truncate">
                     {place.title}
                   </h2>
                   <p className="text-sm font-normal pt-2 truncate">
