@@ -14,7 +14,8 @@ export default function IndexPage() {
     const fetchData = async () => {
       try {
         const response = await axios.get("/places");
-        setPlaces(response.data);
+        const shuffledPlaces = response.data.sort(() => 0.5 - Math.random());
+        setPlaces(shuffledPlaces);
       } catch (error) {
         console.error(error);
       }
