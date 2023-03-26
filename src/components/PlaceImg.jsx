@@ -7,11 +7,5 @@ export default function PlaceImg({
     return "";
   }
 
-  return (
-    <img
-      src={`${import.meta.env.VITE_IMG_URL}/${place.photos[index]}`}
-      className={className}
-      loading="lazy"
-    />
-  );
+  return <img src={place.photos[index]} className={className} loading="lazy" />;
 }
