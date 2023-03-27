@@ -26,21 +26,22 @@ export default function PlacePage() {
       <a
         href="#toppage"
         onClick={() => setShowAllPhotos(false)}
-        className="fade-in absolute inset-0 bg-white h-full w-full"
+        className="fade-in z-50 absolute inset-0 bg-zinc-800 h-full w-full"
       >
-        <div className="h-60 bg-black bg-opacity-80 flex flex-col justify-center items-center text-white text-2xl">
+        <div className="h-60 bg-zinc-800 flex flex-col justify-center items-center text-white text-2xl">
           Click anywhere to close
           <IconSlideUp className="w-10 h-10 mt-12" />
         </div>
-        <div className=" sm:px-32 lg:px-60 grid gap-4 bg-black bg-opacity-80">
+        <div className=" sm:px-32 lg:px-60 bg-zinc-800 grid">
           {place?.photos?.length > 0 &&
             place.photos.map((photo, index) => (
               <div className="sticky top-0" key={photo}>
                 <PlaceImg place={place} className={"w-full"} index={index} />
+                <div className="h-6 w-full bg-zinc-800"></div>
               </div>
             ))}
         </div>
-        <div className="sticky top-0 h-screen bg-black bg-opacity-80 flex justify-center items-center text-white text-2xl">
+        <div className="sticky top-0 h-screen bg-zinc-800 flex justify-center items-center text-white text-2xl">
           Click anywhere to close
         </div>
       </a>

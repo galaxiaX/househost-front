@@ -4,12 +4,11 @@ import Header from "./components/Header";
 export default function Layout() {
   return (
     <div className="flex flex-col relative min-h-screen" id="toppage">
-      <div className="z-50">
+      <div className="z-20">
         <Header />
       </div>
-      <div className="z-10">
-        <Outlet />
-      </div>
+
+      <Outlet />
     </div>
   );
 }
