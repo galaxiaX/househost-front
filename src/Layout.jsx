@@ -3,12 +3,13 @@ import Header from "./components/Header";
 
 export default function Layout() {
   return (
-    <div
-      className="flex flex-col relative px-6- pt-4- sm:px-10- lg:px-20- min-h-screen"
-      id="toppage"
-    >
-      <Header />
-      <Outlet />
+    <div className="flex flex-col relative min-h-screen" id="toppage">
+      <div className="z-50">
+        <Header />
+      </div>
+      <div className="z-10">
+        <Outlet />
+      </div>
     </div>
   );
 }

@@ -28,9 +28,9 @@ export default function NavMenu({ toggleMenu, handleToggle }) {
     <>
       <button
         onClick={handleToggle}
-        className={`fixed sm:hidden w-1/3 z-50 h-full top-0 bg-black flex ${
-          toggleMenu ? "left-2/3 opacity-10" : "-left-2/3 opacity-0"
-        } transition-move transition-opacity duration-500`}
+        className={`fixed sm:hidden w-full z-50 left-0 h-full top-0 bg-black flex ${
+          toggleMenu ? "opacity-10" : "invisible opacity-0"
+        } transition-opacity duration-500`}
       ></button>
       <ul
         id="mySideMenu"
