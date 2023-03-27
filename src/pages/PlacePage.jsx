@@ -49,7 +49,7 @@ export default function PlacePage() {
   }
 
   return (
-    <div className="fade-in mt-6 w-full max-w-screen-xl px-6 sm:px-10 lg:px-48 mx-auto">
+    <div className="fade-in mt-6 w-full max-w-screen-xl px-6 sm:px-10 lg:px-44 mx-auto">
       <div>
         <h1 className="text-2xl mb-1 flex-wrap">{place.title}</h1>
         <a
@@ -63,44 +63,42 @@ export default function PlacePage() {
           {place.address}
         </a>
       </div>
-      <div className="mx-auto">
-        <div
-          className="grid grid-cols-[2fr_1fr] gap-1 sm:gap-2 mt-6 h-40 sm:h-72 md:h-96 rounded-xl overflow-hidden cursor-pointer"
-          onClick={() => setShowAllPhotos(true)}
-        >
-          {place.photos?.[0] && (
+      <div
+        className="grid grid-cols-[3fr_2fr] gap-1 sm:gap-2 mt-6 h-52 sm:h-72 md:h-96 rounded-xl overflow-hidden cursor-pointer"
+        onClick={() => setShowAllPhotos(true)}
+      >
+        {place.photos?.[0] && (
+          <div className="flex overflow-hidden">
+            <PlaceImg place={place} index={0} />
+          </div>
+        )}
+
+        <div className="grid grid-rows-[3fr_2fr] gap-1 sm:gap-2">
+          {place.photos?.[1] && (
             <div className="flex overflow-hidden">
-              <PlaceImg place={place} index={0} />
+              <PlaceImg place={place} index={1} />
             </div>
           )}
 
-          <div className="grid grid-rows-[3fr_2fr] gap-1 sm:gap-2">
-            {place.photos?.[1] && (
+          <div className="grid grid-cols-2 gap-1 sm:gap-2 relative">
+            {place.photos?.[2] && (
               <div className="flex overflow-hidden">
-                <PlaceImg place={place} index={1} />
+                <PlaceImg place={place} index={2} />
               </div>
             )}
 
-            <div className="grid grid-cols-2 gap-1 sm:gap-2 relative">
-              {place.photos?.[2] && (
-                <div className="flex overflow-hidden">
-                  <PlaceImg place={place} index={2} />
-                </div>
-              )}
-
-              {place.photos?.[3] && (
-                <div className="flex overflow-hidden">
-                  <PlaceImg place={place} index={3} />
-                  <button
-                    onClick={() => setShowAllPhotos(true)}
-                    className="flex flex-col justify-center items-center text-gray-600 hover:text-gray-700 object-cover absolute bottom-0 right-0 w-full h-full p-1 bg-white bg-opacity-60 hover:bg-opacity-40"
-                  >
-                    <IconPhoto className="w-5 sm:w-16" />
-                    <h1 className="text-xs sm:text-lg">Show more</h1>
-                  </button>
-                </div>
-              )}
-            </div>
+            {place.photos?.[3] && (
+              <div className="flex overflow-hidden">
+                <PlaceImg place={place} index={3} />
+                <button
+                  onClick={() => setShowAllPhotos(true)}
+                  className="flex flex-col justify-center items-center text-gray-600 hover:text-gray-700 object-cover absolute bottom-0 right-0 w-full h-full p-1 bg-white bg-opacity-60 hover:bg-opacity-40"
+                >
+                  <IconPhoto className="w-5 sm:w-16" />
+                  <h1 className="text-xs sm:text-lg">Show more</h1>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

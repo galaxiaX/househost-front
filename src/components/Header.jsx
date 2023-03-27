@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="w-full h-20 sm:hidden"></div>
+      <div className="w-full h-20"></div>
       <header className="flex z-20 sm:grid sm:grid-cols-3 justify-between border-b w-full border-gray-300 px-6 sm:px-10 lg:px-20 py-4 fixed top-0 left-0 bg-white">
         <div className="flex items-center">
           <Link to={"/"} className="flex items-center gap-1 text-primary">
