@@ -26,7 +26,7 @@ export default function IndexPage() {
 
   if (!ready) {
     return (
-      <div className="flex justify-center pt-60 h-screen">
+      <div className="flex justify-center pt-60">
         <div className="loader"></div>
       </div>
     );
@@ -72,7 +72,7 @@ export default function IndexPage() {
           </button>
         </div>
       )}
-      {places.length > 0 && (
+      {visiblePlaces?.length > 6 && (
         <a
           href="#toppage"
           className="p-2 flex text-xl gap-2 my-10 justify-end sm:justify-center"
