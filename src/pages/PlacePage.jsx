@@ -36,7 +36,7 @@ export default function PlacePage() {
           {place?.photos?.length > 0 &&
             place.photos.map((photo, index) => (
               <div className="sticky top-0" key={photo}>
-                <PlaceImg place={place} className={"w-full"} index={index} />
+                <PlaceImg place={place} className="w-full" index={index} />
                 <div className="h-6 w-full bg-zinc-800"></div>
               </div>
             ))}
@@ -64,11 +64,11 @@ export default function PlacePage() {
         </a>
       </div>
       <div
-        className="grid grid-cols-[3fr_2fr] gap-1 sm:gap-2 mt-6 rounded-xl overflow-hidden cursor-pointer"
+        className="grid photos-height grid-cols-[3fr_2fr] gap-1 sm:gap-2 mt-6 rounded-xl overflow-hidden cursor-pointer"
         onClick={() => setShowAllPhotos(true)}
       >
         {place.photos?.[0] && (
-          <div className="flex">
+          <div className="flex object-cover">
             <PlaceImg place={place} index={0} />
           </div>
         )}

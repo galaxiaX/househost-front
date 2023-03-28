@@ -47,6 +47,24 @@ button.primary {
   height: 33rem;
 }
 
+@media (max-width: 600px) {
+  .photos-height {
+    height: 13rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .photos-height {
+    height: 20rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .photos-height {
+    height: 26rem;
+  }
+}
+
 /* ? animation */
 @keyframes fade-in {
   0% {
