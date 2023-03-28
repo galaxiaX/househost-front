@@ -19,37 +19,41 @@ export default function PlacePage() {
     });
   }, [id]);
 
-  if (!place) return "";
-
-  if (showAllPhotos) {
-    return (
-      <a
-        href="#toppage"
-        onClick={() => setShowAllPhotos(false)}
-        className="fade-in z-50 absolute inset-0 bg-zinc-800 h-full w-full"
-      >
-        <div className="h-60 bg-zinc-800 flex flex-col justify-center items-center text-white text-2xl">
-          Click anywhere to close
-          <IconSlideUp className="w-10 h-10 mt-12" />
-        </div>
-        <div className=" sm:px-32 lg:px-60 bg-zinc-800 grid">
-          {place?.photos?.length > 0 &&
-            place.photos.map((photo, index) => (
-              <div className="sticky top-0" key={photo}>
-                <PlaceImg place={place} className="w-full" index={index} />
-                <div className="h-6 w-full bg-zinc-800"></div>
-              </div>
-            ))}
-        </div>
-        <div className="sticky top-0 h-screen bg-zinc-800 flex justify-center items-center text-white text-2xl">
-          Click anywhere to close
-        </div>
-      </a>
-    );
+  function handleShowPhotos() {
+    setShowAllPhotos((prevState) => !prevState);
   }
 
+  if (!place) return "";
+
+  // if (showAllPhotos) {
+  //   return (
+  //     <a
+  //       href="#toppage"
+  //       onClick={() => setShowAllPhotos(false)}
+  //       className="fade-in z-50 absolute inset-0 bg-zinc-800 h-full w-full"
+  //     >
+  //       <div className="h-60 bg-zinc-800 flex flex-col justify-center items-center text-white text-2xl">
+  //         Click anywhere to close
+  //         <IconSlideUp className="w-10 h-10 mt-12" />
+  //       </div>
+  //       <div className=" sm:px-32 lg:px-60 bg-zinc-800 grid">
+  //         {place?.photos?.length > 0 &&
+  //           place.photos.map((photo, index) => (
+  //             <div className="sticky top-0" key={photo}>
+  //               <PlaceImg place={place} className="w-full" index={index} />
+  //               <div className="h-6 w-full bg-zinc-800"></div>
+  //             </div>
+  //           ))}
+  //       </div>
+  //       <div className="sticky top-0 h-screen bg-zinc-800 flex justify-center items-center text-white text-2xl">
+  //         Click anywhere to close
+  //       </div>
+  //     </a>
+  //   );
+  // }
+
   return (
-    <div className="fade-in mt-2 sm:mt-6 w-full max-w-screen-xl px-6 sm:px-10 lg:px-48 mx-auto">
+    <div className="mt-2 sm:mt-6 w-full max-w-screen-xl px-6 sm:px-10 lg:px-48 mx-auto">
       <div>
         <h1 className="text-2xl mb-1 flex-wrap">{place.title}</h1>
         <a
@@ -65,7 +69,7 @@ export default function PlacePage() {
       </div>
       <div
         className="grid grid-cols-[3fr_2fr] overflow-hidden gap-1 sm:gap-2 mt-6 rounded-xl cursor-pointer"
-        onClick={() => setShowAllPhotos(true)}
+        onClick={handleShowPhotos}
       >
         {place.photos?.[0] && (
           <div className="flex photos-height">
@@ -91,7 +95,7 @@ export default function PlacePage() {
               <div className="flex relative">
                 <PlaceImg place={place} index={3} />
                 <button
-                  onClick={() => setShowAllPhotos(true)}
+                  onClick={handleShowPhotos}
                   className="flex flex-col justify-center items-center text-gray-700 object-cover absolute bottom-0 right-0 w-full h-full p-1 bg-white bg-opacity-70 hover:bg-opacity-60"
                 >
                   <IconPhoto className="w-4 sm:w-8 shrink-0" />
@@ -104,6 +108,32 @@ export default function PlacePage() {
           </div>
         </div>
       </div>
+      {showAllPhotos && (
+        <a
+          href="#toppage"
+          onClick={handleShowPhotos}
+          className="fade-in z-50 absolute inset-0 bg-zinc-800 h-full w-full"
+        >
+          <div className="h-60 bg-zinc-800 flex flex-col justify-center items-center text-white text-2xl">
+            Click anywhere to close
+            <IconSlideUp className="w-10 h-10 mt-12" />
+          </div>
+          <div className=" sm:px-32 lg:px-60 bg-zinc-800 grid gap-6">
+            {place?.photos?.length > 0 &&
+              place.photos.map((photo, index) => (
+                <div
+                  className="flex justify-center mx-auto max-w-2xl"
+                  key={photo}
+                >
+                  <PlaceImg place={place} index={index} />
+                </div>
+              ))}
+          </div>
+          <div className="h-screen bg-zinc-800 flex justify-center items-center text-white text-2xl">
+            Click anywhere to close
+          </div>
+        </a>
+      )}
       <div className="relative sm:flex">
         <main className="sm:w-3/5 sm:justify-items-start">
           <div className="my-8 border-b pb-8">
