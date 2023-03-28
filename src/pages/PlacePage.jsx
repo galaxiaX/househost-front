@@ -64,16 +64,16 @@ export default function PlacePage() {
         </a>
       </div>
       <div
-        className="grid photos-height grid-cols-[3fr_2fr] gap-1 sm:gap-2 mt-6 rounded-xl overflow-hidden cursor-pointer"
+        className="grid grid-cols-[3fr_2fr] overflow-hidden gap-1 sm:gap-2 mt-6 rounded-xl cursor-pointer"
         onClick={() => setShowAllPhotos(true)}
       >
         {place.photos?.[0] && (
-          <div className="flex object-cover">
+          <div className="flex photos-height">
             <PlaceImg place={place} index={0} />
           </div>
         )}
 
-        <div className="grid grid-rows-[2fr_1fr] gap-1 sm:gap-2">
+        <div className="grid grid-rows-[2fr_1fr] gap-1 sm:gap-2 photos-height">
           {place.photos?.[1] && (
             <div className="flex">
               <PlaceImg place={place} index={1} />
