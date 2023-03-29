@@ -50,7 +50,6 @@ export default function SignupPage() {
 
   function handlePasswordChange(ev) {
     setPassword(ev.target.value);
-    setShowPasswordError(ev.target.value !== confirmPassword);
   }
 
   function handleConfirmPasswordChange(ev) {
