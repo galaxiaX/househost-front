@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 import Perks from "../components/Perks";
 import PhotosUploader from "../components/PhotosUploader";
 import AccountNav from "../components/AccountNav";
@@ -26,6 +27,18 @@ export default function PlacesFormPage() {
   });
 
   const [redirect, setRedirect] = useState(false);
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
 
   useEffect(() => {
     if (!id) {
@@ -85,9 +98,18 @@ export default function PlacesFormPage() {
     if (id) {
       newPlace.id = id;
       await axios.put("/places", newPlace);
+      Toast.fire({
+        icon: "success",
+        title: "Your place has been updated.",
+      });
     } else {
       await axios.post("/places", newPlace);
+      Toast.fire({
+        icon: "success",
+        title: "Your place has been saved.",
+      });
     }
+
     setRedirect(true);
   }
 
@@ -96,7 +118,7 @@ export default function PlacesFormPage() {
   }
 
   return (
-    <div className="mx-auto px-6 sm:px-10 lg:px-20 sm:w-11/12 lg:w-10/12">
+    <div className="mx-auto px-6 mb-10 sm:px-10 lg:px-20 sm:w-11/12 lg:w-10/12">
       <AccountNav />
       <form onSubmit={savePlace} className="fade-in">
         {preInput(placeInfo.title[0], placeInfo.title[1])}

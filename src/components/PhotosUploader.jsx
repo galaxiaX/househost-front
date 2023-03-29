@@ -81,12 +81,11 @@ export default function PhotosUploader({ newPlace, setNewPlace }) {
       <div className="mt-2 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2">
         {newPlace.photos.length > 0 &&
           newPlace.photos.map((link, index) => (
-            <div key={link} className="flex h-20 sm:h-28 lg:h-32 relative">
-              <PlaceImg
-                place={newPlace}
-                className={"rounded-2xl w-full object-cover"}
-                index={index}
-              />
+            <div
+              key={link}
+              className="grid h-20 sm:h-28 lg:h-32 w-full rounded-2xl relative overflow-hidden"
+            >
+              <PlaceImg place={newPlace} index={index} />
               <button
                 onClick={(ev) => removePhoto(ev, link)}
                 className="absolute top-1 right-1 text-white cursor-pointer bg-black bg-opacity-20 rounded-full"
