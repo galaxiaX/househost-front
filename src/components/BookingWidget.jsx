@@ -4,6 +4,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import { IconCalendar, IconPhone, IconStar, IconUserLine } from "./SvgIcon";
+import Swal from "sweetalert2";
 
 export default function BookingWidget({ place }) {
   const [reserve, setReserve] = useState({
@@ -16,6 +17,17 @@ export default function BookingWidget({ place }) {
   const [redirect, setRedirect] = useState("");
   const [isReservePage, setIsReservePage] = useState(false);
   const { user } = useContext(UserContext);
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
 
   useEffect(() => {
     if (user) {
@@ -54,6 +66,10 @@ export default function BookingWidget({ place }) {
 
   async function reserveThisPlace() {
     if (!user) {
+      Toast.fire({
+        icon: "warning",
+        title: "Please log in before making a reservation.",
+      });
       setRedirect("/login");
       return;
     }
@@ -66,6 +82,11 @@ export default function BookingWidget({ place }) {
       phone: reserve.phone,
       name: reserve.name,
       price: numberOfNights * place.price,
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: "Reserved successfully",
     });
     setRedirect("/account/bookings");
   }
@@ -211,7 +232,6 @@ export default function BookingWidget({ place }) {
           <div className="w-full items-center">
             <button
               onClick={reserveThisPlace}
-              disabled={!reserve.phone && !reserve.guests}
               className="py-3 px-6 w-full bg-gradient hover:opacity-70 active:opacity-90 rounded-lg text-white"
             >
               Reserve

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 import PlaceImg from "../components/PlaceImg";
 import BookingsOrder from "../components/BookingsOrder";
 import { IconBin, IconTriangle, IconX } from "../components/SvgIcon";
@@ -22,7 +23,6 @@ export default function PlacesPage() {
 
   async function removePlace(ev, placeId) {
     ev.preventDefault();
-
     try {
       await axios.delete(`/places/${placeId}`);
       setPlaces(places.filter((place) => place._id !== placeId));
@@ -40,6 +40,24 @@ export default function PlacesPage() {
       console.error(error);
     }
   }
+
+  const handleRemovePlace = (ev, placeId) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, just remove it!",
+      cancelButtonText: "No, don't remove",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removePlace(ev, placeId);
+        Swal.fire("Removed!", "Your Place has been removed.", "success");
+      }
+    });
+  };
 
   return (
     <div className="mb-10 px-6 sm:px-10 lg:px-20">
@@ -82,7 +100,7 @@ export default function PlacesPage() {
                 </div>
               </Link>
               <button
-                onClick={(ev) => removePlace(ev, place._id)}
+                onClick={(ev) => handleRemovePlace(ev, place._id)}
                 className="absolute flex overflow-hidden w-7 transition-all duration-300 hover:w-24 hover:px-2 top-2 right-2 sm:top-3 sm:right-3 items-center bg-red-600 text-white rounded-full"
               >
                 <div className="w-7 h-7 p-1">

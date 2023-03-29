@@ -8,8 +8,8 @@ import axios from "axios";
 import ProfilePage from "./pages/ProfilePage";
 import PlacesFormPage from "./pages/PlacesFormPage";
 import PlacePage from "./pages/PlacePage";
-import "./App.css";
 import PageNotFound from "./components/PageNotFound";
+import "./App.css";
 
 axios.defaults.baseURL =
   import.meta.env.VITE_SERVER_URL || "http://localhost:3000";

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useContext, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
@@ -20,10 +21,20 @@ export default function LoginPage() {
         { withCredentials: true }
       );
       setUser(data);
-      alert("Login successfull");
+      await Swal.fire({
+        icon: "success",
+        title: "Login successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       setRedirect(true);
     } catch (err) {
-      alert("Login failed");
+      Swal.fire({
+        icon: "error",
+        title: "Email or Password may not correct",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
   }
 

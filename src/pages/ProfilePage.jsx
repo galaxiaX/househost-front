@@ -6,10 +6,22 @@ import PlacesPage from "./PlacesPage";
 import AccountNav from "../components/AccountNav";
 import BookingsPage from "./BookingsPage";
 import { IconLogout } from "../components/SvgIcon";
+import Swal from "sweetalert2";
 
 export default function ProfilePage() {
   const [redirect, setRedirect] = useState(null);
   const { ready, user, setUser } = useContext(UserContext);
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
 
   let { subpage } = useParams();
   if (subpage === undefined) {
@@ -20,6 +32,10 @@ export default function ProfilePage() {
     await axios.post("/logout");
     setUser(null);
     setRedirect("/login");
+    Toast.fire({
+      icon: "success",
+      title: "You are now logged out.",
+    });
   }
 
   if (!ready) {

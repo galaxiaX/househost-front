@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import PlaceImg from "../components/PlaceImg";
 import { differenceInCalendarDays, format } from "date-fns";
@@ -29,6 +30,24 @@ export default function BookingsPage() {
       console.error(error);
     }
   }
+
+  const handleRemoveBooking = (ev, bookingId) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, just cancel it!",
+      cancelButtonText: "No, don't cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeBooking(ev, bookingId);
+        Swal.fire("Canceled!", "Your booking has been cancel.", "success");
+      }
+    });
+  };
 
   return (
     <>
@@ -82,8 +101,8 @@ export default function BookingsPage() {
                 </div>
               </Link>
               <button
-                onClick={(ev) => removeBooking(ev, booking._id)}
-                className="absolute flex overflow-hidden w-7 transition-all duration-300 hover:w-24 hover:px-2 top-2 right-2 sm:top-3 sm:right-3 items-center bg-red-600 text-white rounded-full"
+                onClick={(ev) => handleRemoveBooking(ev, booking._id)}
+                className="absolute flex overflow-hidden w-7 transition-all duration-300 hover:w-24 hover:px-2 bottom-2 right-2 sm:bottom-3 sm:right-3 items-center bg-red-600 text-white rounded-full"
               >
                 <div className="w-7 h-7 p-1">
                   <IconBin />

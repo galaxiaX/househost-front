@@ -11,15 +11,32 @@ import {
   IconLogin,
   IconLogout,
 } from "./SvgIcon";
+import Swal from "sweetalert2";
 
 export default function NavMenu({ toggleMenu, handleToggle }) {
-  const [redirect, setRedirect] = useState("");
+  const [redirect, setRedirect] = useState(false);
   const { user, setUser } = useContext(UserContext);
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
   async function logout() {
     await axios.post("/logout");
     handleToggle();
     setUser(null);
-    setRedirect("/login");
+    setRedirect(true);
+    Toast.fire({
+      icon: "success",
+      title: "You are now logged out.",
+    });
   }
 
   redirect && <Navigate to={"/login"} />;

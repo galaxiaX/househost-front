@@ -1,6 +1,7 @@
+import axios from "axios";
+import Swal from "sweetalert2";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import axios from "axios";
 import { IconEyeOff, IconEyeOn } from "../components/SvgIcon";
 
 export default function SignupPage() {
@@ -28,10 +29,22 @@ export default function SignupPage() {
         email,
         password,
       });
-      alert("Registration successful, Now you can log in.");
+      await Swal.fire({
+        icon: "success",
+        title: "Signed up successfully ",
+        text: "Now you can log in.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       setRedirect("/login");
     } catch (err) {
-      alert("Registration failed, Please try again.");
+      await Swal.fire({
+        icon: "error",
+        title: "Signed up fail",
+        text: "Please try again.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   }
 
