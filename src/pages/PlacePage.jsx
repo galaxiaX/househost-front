@@ -23,34 +23,7 @@ export default function PlacePage() {
     setShowAllPhotos((prevState) => !prevState);
   }
 
-  if (!place) return "";
-
-  // if (showAllPhotos) {
-  //   return (
-  //     <a
-  //       href="#toppage"
-  //       onClick={() => setShowAllPhotos(false)}
-  //       className="fade-in z-50 absolute inset-0 bg-zinc-800 h-full w-full"
-  //     >
-  //       <div className="h-60 bg-zinc-800 flex flex-col justify-center items-center text-white text-2xl">
-  //         Click anywhere to close
-  //         <IconSlideUp className="w-10 h-10 mt-12" />
-  //       </div>
-  //       <div className=" sm:px-32 lg:px-60 bg-zinc-800 grid">
-  //         {place?.photos?.length > 0 &&
-  //           place.photos.map((photo, index) => (
-  //             <div className="sticky top-0" key={photo}>
-  //               <PlaceImg place={place} className="w-full" index={index} />
-  //               <div className="h-6 w-full bg-zinc-800"></div>
-  //             </div>
-  //           ))}
-  //       </div>
-  //       <div className="sticky top-0 h-screen bg-zinc-800 flex justify-center items-center text-white text-2xl">
-  //         Click anywhere to close
-  //       </div>
-  //     </a>
-  //   );
-  // }
+  if (!place) return null;
 
   return (
     <div className="mt-2 sm:mt-6 w-full max-w-screen-xl px-6 sm:px-10 lg:px-48 mx-auto">
