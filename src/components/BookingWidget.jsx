@@ -74,6 +74,20 @@ export default function BookingWidget({ place }) {
       return;
     }
 
+    if (
+      !reserve.checkin ||
+      !reserve.checkout ||
+      !reserve.guests ||
+      !reserve.phone ||
+      !reserve.name
+    ) {
+      Toast.fire({
+        icon: "warning",
+        title: "Please fill out the form.",
+      });
+      return;
+    }
+
     await axios.post("/bookings", {
       place: place._id,
       checkin: reserve.checkin,
@@ -90,6 +104,7 @@ export default function BookingWidget({ place }) {
     });
     setRedirect("/account/bookings");
   }
+
   if (redirect) {
     return <Navigate to={redirect} />;
   }
@@ -117,7 +132,7 @@ export default function BookingWidget({ place }) {
         </div>
       )}
       <aside
-        className="sm:sticky z-20 flex sm:top-32 sm:right-0 h-100 my-8 sm:w-1/3 border rounded-lg shadow-xl bg-white"
+        className="sm:sticky flex sm:top-32 sm:right-0 h-100 my-8 sm:w-1/3 border rounded-lg shadow-xl bg-white"
         id="reserve"
       >
         <div className="flex flex-col w-full p-7 h-100 items-center">
