@@ -45,27 +45,27 @@ export default function PlacePage() {
         onClick={handleShowPhotos}
       >
         {place.photos?.[0] && (
-          <div className="grid photos-height">
+          <div className="flex photos-height">
             <PlaceImg place={place} index={0} />
           </div>
         )}
 
         <div className="grid grid-rows-[2fr_1fr] gap-1 sm:gap-2 photos-height">
           {place.photos?.[1] && (
-            <div className="grid">
+            <div className="flex">
               <PlaceImg place={place} index={1} />
             </div>
           )}
 
           <div className="grid grid-cols-2 gap-1 sm:gap-2 relative sm:static">
             {place.photos?.[2] && (
-              <div className="grid">
+              <div className="flex">
                 <PlaceImg place={place} index={2} />
               </div>
             )}
 
             {place.photos?.[3] && (
-              <div className="grid relative">
+              <div className="flex relative">
                 <PlaceImg place={place} index={3} />
                 <button
                   onClick={handleShowPhotos}

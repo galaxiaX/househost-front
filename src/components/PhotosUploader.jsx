@@ -83,7 +83,7 @@ export default function PhotosUploader({ newPlace, setNewPlace }) {
           newPlace.photos.map((link, index) => (
             <div
               key={link}
-              className="grid h-20 sm:h-28 lg:h-32 w-full rounded-2xl relative overflow-hidden"
+              className="grid h-20 sm:h-28 lg:h-32 rounded-2xl relative overflow-hidden"
             >
               <PlaceImg place={newPlace} index={index} />
               <button
