@@ -61,7 +61,7 @@ export default function NavMenu({ toggleMenu, handleToggle }) {
           <div className="cursor-pointer mt-16 sm:mt-0 flex">
             <a
               target="_blank"
-              href="https://github.com/galaxiaX"
+              href="https://github.com/galaxiaX/househost-front"
               className="w-1/2 hover:bg-slate-200 flex justify-center py-5 sm:py-1"
             >
               <IconGithub className="w-9 sm:w-7" />
