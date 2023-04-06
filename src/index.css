@@ -4,6 +4,7 @@
 
 * {
   @apply font-medium box-border scroll-smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
