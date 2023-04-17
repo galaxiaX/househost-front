@@ -6,6 +6,10 @@ Live at: [househost.vercel.app](https://househost.vercel.app)
 
 This repository contains the frontend code for Househost, a web application for managing rental properties. The frontend was built with Vite and React and is deployed on Vercel.
 
+## Backend 🔧
+
+The backend for this project can be found at [github.com/galaxiaX/househost-back](https://github.com/galaxiaX/househost-back) . It was built with Node.js, Express, and MongoDB, and it stores images in AWS S3.
+
 ### Getting Started 💻
 
 To get started with the project, follow these steps:
@@ -40,7 +44,3 @@ npm run build
 ```
 
 This will generate a production build in the dist directory. You can then deploy this directory to your preferred hosting platform.
-
-## Backend 🔧
-
-The backend for this project can be found at [github.com/galaxiaX/househost-back](https://github.com/galaxiaX/househost-back) . It was built with Node.js, Express, and MongoDB, and it stores images in AWS S3.
