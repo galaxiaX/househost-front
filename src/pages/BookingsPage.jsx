@@ -52,7 +52,7 @@ export default function BookingsPage() {
   return (
     <>
       {bookings?.length > 0 ? (
-        <div className="fade-in mt-4 mx-auto px-6 sm:px-10 lg:px-20 w-full sm:w-9/12 lg:w-7/12 flex flex-col gap-4">
+        <div className="fade-in my-4 mx-auto px-6 sm:px-10 lg:px-20 w-full sm:w-9/12 lg:w-7/12 flex flex-col gap-4">
           {bookings.map((booking) => (
             <div key={booking._id} className="relative">
               <Link
